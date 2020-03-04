@@ -1,4 +1,5 @@
 import React , {Component} from 'react';
+import Register from './Register';
 
 
 class List extends Component{
@@ -28,7 +29,9 @@ class List extends Component{
           else{
     
           return(
-            <div className="">
+           
+            <div className="listdisplay">
+                  
             <h2> Lists Of books</h2>
       
             {
@@ -37,7 +40,21 @@ class List extends Component{
       
            <img src={item.list_image} width= {100}></img> 
             <h3>{item.list_name} List</h3>
-      
+           { item.books.map(book=>
+    <div key={book.rank}>
+      <h3>{book.title}</h3>
+      <img src={book.book_image} width={250}></img>
+      <span>{book.author}</span><span>{book.description}</span><a href={book.book_uri}>visit this book</a>
+      <a href={book.amazon_product_url}>Amazon Url</a>
+      <div>
+          <h4>Buy Links</h4>
+          <ul>
+          {book.buy_links.map(link=>
+            <li key={link.url}> <a  href={link.url}>{link.name}</a></li>
+
+            )}</ul>
+         
+      </div> </div> )}
            </div>)} </div>
   
     
@@ -46,3 +63,4 @@ class List extends Component{
 
 
 }
+export default List;
