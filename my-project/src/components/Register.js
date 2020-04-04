@@ -1,70 +1,134 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
+import axios from 'axios';
+
+
 
 
 
 class Register extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+//////////////////////
+
+this.onChangeFirstUserName = this.onChangeFirstUserName.bind(this);
+        this.onChangeLastUserName = this.onChangeLastUserName.bind(this);
+        this.onhandleSubmit = this.onhandleSubmit.bind(this);
+        this.onChangeAge = this.onChangeAge.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangeAdress = this.onChangeAdress.bind(this);
+
+////////////////////////
+
+  this.state = {
+    
       fname: '',
       lname:'',
-      age: null,
-      Email:'',
-      adress:'',
-
+      age: '',
+      email:'',
+      adress:''
+     
     };
+   }
+
+   //////////////////////
+   onChangeFirstUserName(e) {
+    this.setState({ fname: e.target.value })
+}
+
+onChangeLastUserName(e) {
+  this.setState({ lname: e.target.value })
+}
+
+onChangeAge(e) {
+  this.setState({ age: e.target.value })
+}
+
+onChangeEmail(e) {
+  this.setState({ email: e.target.value })
+}
+
+onChangeAdress(e) {
+  this.setState({ adress: e.target.value })
+}
+
+  onhandleSubmit = event => {
+    event.preventDefault();
+console.log(this.state.fname);
+console.log(this.state.lname);
+console.log(this.state.age);
+console.log(this.state.email);
+console.log(this.state.adress);
+
+ 
+    axios.post(`http://localhost:3002/api/customers/`,this.state)
+      .then(res => {
+
+     
+        console.log(res);
+        // console.log(res.data);
+      });
+      //this.setState({ fname: '',lname: '',age: '',email: '', adress: '' })
   }
-  myChangeHandler = (event) => {
-    let nam = event.target.name;
-    let val = event.target.value;
-    this.setState({[nam]: val});
-  }
+
+
+  
   render() {
     return (
         <div className="registerform">
-      <form>
+      <form onSubmit={this.onhandleSubmit}>
       <h1>Hello {this.state.fname} {this.state.lname}</h1>
       <p>First name:</p>
       <input
         type='text'
         name='fname'
-        onChange={this.myChangeHandler}
+        value={this.state.fname}
+      
+        onChange={this.onChangeFirstUserName}
       />
        <p> Last name:</p>
       <input
         type='text'
         name='lname'
-        onChange={this.myChangeHandler}
+        value={this.state.lname}
+       
+        onChange={this.onChangeLastUserName}
       />
         <p> Age:</p>
       <input
         type='text'
         name='age'
-        onChange={this.myChangeHandler}
+        value={this.state.age}
+     
+        onChange={this.onChangeAge}
       />
         <p> Email:</p>
       <input
         type='text'
-        name='Email'
-        onChange={this.myChangeHandler}
+        name='email'
+     
+        onChange={this.onChangeEmail}
       />
         <p> Adress:</p>
       <input
         type='text'
         name='adress'
-        onChange={this.myChangeHandler}
+        value={this.state.adress}
+      
+        onChange={this.onChangeAdress}
       />
      
 
 <input
-        type='submit'
+        type='submit' value='submit'
       />
       </form>
       </div>
     );
   }
+
 }
+
 
 export default Register;
 
