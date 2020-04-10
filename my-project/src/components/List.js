@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import Register from './Register';
+
 
 
 class List extends Component{
@@ -38,12 +38,12 @@ class List extends Component{
             items.map(item=>
           <div key={item.list_id}>
       
-           <img src={item.list_image} width= {100}></img> 
+           {/* <img src={item.list_image} width= {100}></img>  */}
             <h3>{item.list_name} List</h3>
            { item.books.map(book=>
     <div key={book.rank}>
       <h3>{book.title}</h3>
-      <img src={book.book_image} width={250}></img>
+      <img src={book.book_image} width={250} alt="bookimg"></img>
       <span>{book.author}</span><span>{book.description}</span><a href={book.book_uri}>visit this book</a>
       <a href={book.amazon_product_url}>Amazon Url</a>
       <div>

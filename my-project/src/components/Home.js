@@ -7,15 +7,12 @@ import List from './List';
 
 class Home extends Component{
 
-    constructor(props) {
-        super(props);
-        
-      }
+
 
 render(){
     return(
 <div>
-<img src={caroselfoto}></img>
+<img src={caroselfoto} alt="caroself"></img>
 
 
 

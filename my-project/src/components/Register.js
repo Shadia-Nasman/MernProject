@@ -1,5 +1,5 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
+
 import axios from 'axios';
 
 
@@ -68,7 +68,7 @@ console.log(this.state.adress);
         console.log(res);
         // console.log(res.data);
       });
-      //this.setState({ fname: '',lname: '',age: '',email: '', adress: '' })
+      this.setState({ fname: '',lname: '',age: '',email: '', adress: '' })
   }
 
 

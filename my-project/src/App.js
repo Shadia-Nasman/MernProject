@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import List from './components/List';
 import Home from './components/Home';
+import CustomersList from './components/CustomersList';
 
 
 
@@ -30,11 +31,13 @@ class App extends Component {
     <li>  <Link to="/list">Books Lists</Link> </li>
     <li>  <Link to="/login">Login</Link> </li>
     <li>  <Link to="/register">Register</Link> </li>
+    <li>  <Link to="/CustomersList">Show Customers</Link> </li>
     </ul>
     <Route  exact path="/" component={Home}/>
     <Route   path="/list" component={List}/>
     <Route  path="/login" component={Login}/>
     <Route  path="/register" component={Register}/>    
+    <Route  path="/CustomersList" component={CustomersList}/>    
 
     </div>
 
