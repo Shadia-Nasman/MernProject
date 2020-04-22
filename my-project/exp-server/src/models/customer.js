@@ -8,6 +8,7 @@ const CustomerSchema=new Schema({
 lname:{type: String}, /* required:[true,'Name is required']}, */
 age: {type:Number},
 email:{type: String},
+password:{type: String},
 adress:{type:String}
 
 });

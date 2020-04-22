@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 
-class Register extends React.Component {
+export default class EditForm extends React.Component {
   constructor(props) {
     super(props);
 //////////////////////
@@ -67,7 +67,7 @@ console.log(this.state.password);
 console.log(this.state.adress); */
 
  
-    axios.post(`http://localhost:3002/api/customers/`,this.state)
+    axios.put(`http://localhost:3002/api/customers/`,this.state)
       .then(res => {
 
      
@@ -144,5 +144,5 @@ console.log(this.state.adress); */
 }
 
 
-export default Register;
+
 

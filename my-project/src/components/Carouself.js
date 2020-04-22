@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import foto2 from '../img/foto2';
+import Carousel from 'Carousel'
 
 class Crouself extends Component{
 
