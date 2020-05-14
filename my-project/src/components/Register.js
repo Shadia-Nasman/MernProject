@@ -141,7 +141,7 @@ onChangeAdress(e) {
      </div>
      <div className="form-group"> 
 
-<input
+<input variant="secondary"
         type='submit' value='submit'
       />
       </div>

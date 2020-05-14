@@ -2,6 +2,13 @@ import React , {Component} from 'react';
 
 
 
+import {
+  Card, CardImg
+} from 'react-bootstrap';
+
+// import {CardBody} from 'reactstrap';
+
+
 class List extends Component{
     constructor(props) {
         super(props);
@@ -30,34 +37,45 @@ class List extends Component{
     
           return(
            
-            <div class="container">
+            <div className="container">
+            
                   
             {/* <h2> Lists Of books</h2> */}
-            <div class="row">
+            <div className="row">
             {
              
             items.map(item=>
-          <div key={item.list_id} class="card mt-3 mb-3 mr-3 ml-3"   style={{width: 250} }>
+          <div key={item.list_id}    style={{width: 250} }>
       
            {/* <img src={item.list_image} width= {100}></img>  */}
             {/* <h4>{item.list_name} List</h4> */}
            { item.books.map(book=>
     <div key={book.rank} >
-    <div class="col border rounded-lg mx-auto mt-3 mb-3 ">
-      <h4 class="card-title">{book.title}</h4>
-      <img src={book.book_image} alt="bookimg" class="card-img-top"></img>
-      <span>{book.author}</span><p class="card-text">{book.description}</p><a href={book.book_uri}>visit this book</a>
-      <a href={book.amazon_product_url}>Amazon Url</a>
-      <div  class="card-body">
-          <h4 class="btn btn-primary">Buy Links</h4>
+    <div >
+    <Card>
+    <Card.Title>{book.title}</Card.Title>
+      <CardImg  width="100%" src={book.book_image} alt="bookimg" />
+      <Card.Body>
+      <span>{book.author}</span><Card.Text> {book.description}</Card.Text><Card.Link href={book.book_uri}>visit this book</Card.Link>
+      <Card.Link href={book.amazon_product_url}>Amazon Url</Card.Link>
+      <div  >
+          <h4 >Buy Links</h4>
           <ul>
           {book.buy_links.map(link=>
-            <li key={link.url}> <a  href={link.url}>{link.name}</a></li>
+            <li key={link.url}> <Card.Link  href={link.url}>{link.name}</Card.Link></li>
 
             )}</ul>
          
-      </div> </div></div> )}
-           </div>)}</div> </div>
+      </div> 
+      
+      </Card.Body>
+      </Card>
+      </div>
+      
+      
+      </div> )}
+           </div>)}</div>
+    </div>
   
     
       );}}
