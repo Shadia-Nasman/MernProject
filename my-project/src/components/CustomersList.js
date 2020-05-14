@@ -69,8 +69,9 @@ export default class CustomersList extends React.Component {
 
   render() {
     return (
+      <center>
         <div className="customerslist">
-      <table>
+      <table className="table table-striped" style={{ marginTop: 20 }} >
         <thead>
             <tr >
                 <th>First Name</th>
@@ -121,6 +122,7 @@ export default class CustomersList extends React.Component {
         </tbody>)}
         </table>
       </div>
+      </center>
     )
   }
 }

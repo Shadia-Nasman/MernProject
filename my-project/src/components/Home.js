@@ -11,6 +11,7 @@ class Home extends Component{
 
 render(){
     return(
+        <center>
 <div>
 <img src={caroselfoto} alt="caroself"></img>
 
@@ -29,7 +30,7 @@ render(){
    </Router>
    </div>
   
-
+</center>
 );
 
 }

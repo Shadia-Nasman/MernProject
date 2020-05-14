@@ -81,6 +81,7 @@ console.log(this.state.adress); */
   
   render() {
     return (
+      <center>
         <div className="registerform">
       <form onSubmit={this.onhandleSubmit}>
       <h1>Hello {this.state.fname} {this.state.lname}</h1>
@@ -115,6 +116,7 @@ console.log(this.state.adress); */
      
         onChange={this.onChangeEmail}
       />
+      <div>
       <p>Set Your Account Password</p>
         <input
         type='text'
@@ -122,7 +124,8 @@ console.log(this.state.adress); */
         value={this.state.password}
       
         onChange={this.onChangePassword}
-      />
+      /></div>
+      <div>
         <p> Adress:</p>
       <input
         type='text'
@@ -131,13 +134,16 @@ console.log(this.state.adress); */
       
         onChange={this.onChangeAdress}
       />
-     
+      </div>
+     <div>
 
 <input
         type='submit' value='submit'
       />
+      </div>
       </form>
       </div>
+      </center>
     );
   }
 

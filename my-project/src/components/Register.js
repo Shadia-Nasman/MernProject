@@ -2,7 +2,7 @@ import React from 'react';
 
 import axios from 'axios';
 
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 
@@ -11,13 +11,13 @@ class Register extends React.Component {
     super(props);
 //////////////////////
 
-/* this.onChangeFirstUserName = this.onChangeFirstUserName.bind(this);
+this.onChangeFirstUserName = this.onChangeFirstUserName.bind(this);
         this.onChangeLastUserName = this.onChangeLastUserName.bind(this);
         this.onhandleSubmit = this.onhandleSubmit.bind(this);
         this.onChangeAge = this.onChangeAge.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangePassword=this.onChangePassword.bind(this);
-        this.onChangeAdress = this.onChangeAdress.bind(this); */
+        this.onChangeAdress = this.onChangeAdress.bind(this);
 
 ////////////////////////
 
@@ -59,14 +59,7 @@ onChangeAdress(e) {
 
   onhandleSubmit = event => {
     event.preventDefault();
-/* console.log(this.state.fname);
-console.log(this.state.lname);
-console.log(this.state.age);
-console.log(this.state.email);
-console.log(this.state.password);
-console.log(this.state.adress); */
 
- 
     axios.post(`http://localhost:3002/api/customers/`,this.state)
       .then(res => {
 
@@ -75,14 +68,18 @@ console.log(this.state.adress); */
         // console.log(res.data);
       });
       this.setState({ fname: '',lname: '',age: '',email: '', password: '', adress: '' })
+      this.props.history.push("/CustomersList");
   }
 
 
   
   render() {
     return (
+      <center>
         <div className="registerform">
+        <h3>Create New Customer</h3>
       <form onSubmit={this.onhandleSubmit}>
+      <div className="form-group"> 
       <h1>Hello {this.state.fname} {this.state.lname}</h1>
       <p>First name:</p>
       <input
@@ -92,6 +89,8 @@ console.log(this.state.adress); */
       
         onChange={this.onChangeFirstUserName}
       />
+      </div>
+      <div className="form-group"> 
        <p> Last name:</p>
       <input
         type='text'
@@ -100,6 +99,8 @@ console.log(this.state.adress); */
        
         onChange={this.onChangeLastUserName}
       />
+      </div>
+      <div className="form-group"> 
         <p> Age:</p>
       <input
         type='text'
@@ -108,6 +109,8 @@ console.log(this.state.adress); */
      
         onChange={this.onChangeAge}
       />
+      </div>
+      <div className="form-group"> 
         <p> Email:</p>
       <input
         type='text'
@@ -115,6 +118,8 @@ console.log(this.state.adress); */
      
         onChange={this.onChangeEmail}
       />
+      </div> 
+       <div className="form-group"> 
       <p>Set Your Account Password</p>
         <input
         type='text'
@@ -123,6 +128,8 @@ console.log(this.state.adress); */
       
         onChange={this.onChangePassword}
       />
+      </div> 
+       <div className="form-group"> 
         <p> Adress:</p>
       <input
         type='text'
@@ -131,13 +138,16 @@ console.log(this.state.adress); */
       
         onChange={this.onChangeAdress}
       />
-     
+     </div>
+     <div className="form-group"> 
 
 <input
         type='submit' value='submit'
       />
+      </div>
       </form>
       </div>
+      </center>
     );
   }
 

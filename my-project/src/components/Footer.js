@@ -7,12 +7,14 @@ export default class Footer extends React.Component{
 
     render(){
         return(
+            <center>
                 <div>
         <p>
-            Made By:Shadia Nasman 2020
+       
+           
         </p>
                 </div>
-
+</center>
         );
     }
 }

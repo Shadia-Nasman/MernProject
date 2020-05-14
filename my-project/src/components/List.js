@@ -30,32 +30,34 @@ class List extends Component{
     
           return(
            
-            <div className="listdisplay">
+            <div class="container">
                   
-            <h2> Lists Of books</h2>
-      
+            {/* <h2> Lists Of books</h2> */}
+            <div class="row">
             {
+             
             items.map(item=>
-          <div key={item.list_id}>
+          <div key={item.list_id} class="card mt-3 mb-3 mr-3 ml-3"   style={{width: 250} }>
       
            {/* <img src={item.list_image} width= {100}></img>  */}
-            <h3>{item.list_name} List</h3>
+            {/* <h4>{item.list_name} List</h4> */}
            { item.books.map(book=>
-    <div key={book.rank}>
-      <h3>{book.title}</h3>
-      <img src={book.book_image} width={250} alt="bookimg"></img>
-      <span>{book.author}</span><span>{book.description}</span><a href={book.book_uri}>visit this book</a>
+    <div key={book.rank} >
+    <div class="col border rounded-lg mx-auto mt-3 mb-3 ">
+      <h4 class="card-title">{book.title}</h4>
+      <img src={book.book_image} alt="bookimg" class="card-img-top"></img>
+      <span>{book.author}</span><p class="card-text">{book.description}</p><a href={book.book_uri}>visit this book</a>
       <a href={book.amazon_product_url}>Amazon Url</a>
-      <div>
-          <h4>Buy Links</h4>
+      <div  class="card-body">
+          <h4 class="btn btn-primary">Buy Links</h4>
           <ul>
           {book.buy_links.map(link=>
             <li key={link.url}> <a  href={link.url}>{link.name}</a></li>
 
             )}</ul>
          
-      </div> </div> )}
-           </div>)} </div>
+      </div> </div></div> )}
+           </div>)}</div> </div>
   
     
       );}}
